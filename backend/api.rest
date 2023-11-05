@@ -1,0 +1,260 @@
+# create super user
+POST http://localhost:5500/api/create-superuser HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"aryan",
+    "username":"aryannipane",
+    "password":"aryan"
+}
+
+###
+
+# login-superuser
+POST http://localhost:5500/api/login-superuser HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"aryannipane",
+    "password":"aryan"
+}
+
+###
+
+# logout-superuser
+POST http://localhost:5500/api/logout-superuser HTTP/1.1
+Content-Type: application/json
+
+{}
+
+###
+
+# create admin
+POST http://localhost:5500/api/create-admin HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Aryan Nipane",
+    "username":"aryannipane",
+    "password":"aryan"
+}
+
+###
+
+# get all admins
+POST http://localhost:5500/api/get-admins HTTP/1.1
+Content-Type: application/json
+
+{}
+
+###
+
+# remove admin
+POST http://localhost:5500/api/remove-admin HTTP/1.1
+Content-Type: application/json
+
+{
+    "id":"6346b76b830499adca59c9ee"
+}
+
+###
+
+# ADMIN REQUESTS
+# admin login
+POST http://localhost:5500/api/login-admin HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"aryannipane",
+    "password":"aryan"
+}
+
+###
+# admin logout
+POST http://localhost:5500/api/logout-admin HTTP/1.1
+Content-Type: application/json
+
+{}
+
+###
+# create nurse
+POST http://localhost:5500/api/create-nurse HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"nurse",
+    "username":"nurse1",
+    "password":"nurse1"
+}
+
+###
+# remove nurse
+POST http://localhost:5500/api/remove-nurse HTTP/1.1
+Content-Type: application/json
+
+{
+    "id":"63679f00a8034cad599fe8d1"
+}
+
+###
+# get all nurses
+POST http://localhost:5500/api/get-nurses HTTP/1.1
+Content-Type: application/json
+
+{}
+
+###
+
+#NURSE REQUESTS
+# login nurse
+POST http://localhost:5500/api/login-nurse HTTP/1.1
+Content-Type: application/json
+
+{
+
+    "username":"aryannipane",
+    "password":"fgh"
+}
+
+###
+
+# logout nurse
+POST http://localhost:5500/api/logout-nurse HTTP/1.1
+Content-Type: application/json
+
+{}
+
+###
+
+# get single patient by id and mrNo
+GET http://localhost:5500/api/patient HTTP/1.1
+Content-Type: application/json
+
+{
+    "id":"640f4c9fcf99f4fa763b3e41",
+    "mrNo":"1000001"
+}
+
+###
+
+# get all patient in particular department (icu is variable)
+GET http://localhost:5500/api/department/icu HTTP/1.1
+Content-Type: application/json
+
+{
+    
+}
+
+###
+
+# create/add patient identification details (creates new patient)
+POST http://localhost:5500/api/patient/identification HTTP/1.1
+Content-Type: application/json
+
+{
+    "mrNo": 1000058,
+    "name":"Ariana babu",
+    "department":"icu",
+    "age":25,
+    "sex":"M",
+    "ward":"",
+    "bedNo":1,
+    "ipdNo":1234,
+    "dateOfAdmission":"",
+    "patientCategory":"",
+    "drName":"",
+    "unit":"",
+    "diagnosis":""
+}
+
+###
+
+# add patient situation details
+POST http://localhost:5500/api/patient/situation HTTP/1.1
+Content-Type: application/json
+
+{
+    "id":"640f1814d20f907c0493b8a1",
+    "mrNo":"2000000002",
+    "oxygenSupport":{
+        "os": "roomAir",
+        "value": ""
+    },
+    "ventilatorSupport":{
+        "vs":"prvc",
+        "fiO2":12,
+        "peep":34,
+        "rr":55,
+        "tidalVolume": 98,
+        "other": "nothing to put ^_^"
+    }
+}
+
+
+###
+
+
+# update patient ISBAR components
+POST http://localhost:5500/api/patient/update HTTP/1.1
+Content-Type: application/json
+
+{
+    "id":"642d5e148f0df06741aa4fa6",
+    "mrNo":"123",
+    "ISBAR":"situation",
+    "situation": {
+      "oxygenSupport": 
+      {
+        "os":"roomAir",
+        "value":null
+      }
+    }
+}
+
+###
+
+# remove patient and add to history
+DELETE http://localhost:5500/api/patient HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "640f45073661cb6ea2ccbd86",
+    "mrNo": 2000000002
+}
+
+###
+
+# get departments
+GET http://localhost:5500/api/departments HTTP/1.1
+Content-Type: application/json
+
+{}
+
+
+
+###
+
+# refresh auth
+GET http://localhost:5500/api/refresh HTTP/1.1
+Content-Type: application/json
+
+{}
+
+
+
+
+
+
+
+
+
+
+###
+
+# testing route not the part of project
+POST http://localhost:5500/api/test HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"nipanearyan"
+}

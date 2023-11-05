@@ -1,0 +1,147 @@
+openapi: 3.0.0
+
+info:
+  title: SHAN BACKEND API
+  description: This rest api is used for SHAN Application
+  version: 1.0.0
+  contact: 
+    name: Aryan Nipane
+    email: nipaneeducation@gmail.com
+
+servers:
+  - url: "http://localhost:5500"
+    description: for localhost 
+
+paths: 
+  /api/create-superuser:
+    post:
+      tags:
+        - SuperUser Routes
+      summary: creates superuser and returns success or failure message
+      consumes:
+        application/json
+      produces:
+        application/json
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                phone:
+                  type: string
+                password:
+                  type: string
+      responses:
+        201: 
+          description: superueser created success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        400: 
+          description: bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        500: 
+          description: server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /api/login-superuser:
+    post:
+      tags:
+        - SuperUser Routes
+      summary: logins superuser
+      consumes:
+        application/json
+      produces:
+        application/json
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+                password:
+                  type: string
+
+      responses:
+        200: 
+          description: superueser created success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /api/logout-superuser:
+    post:
+      tags:
+        - SuperUser Routes
+      summary: logout superuser
+      responses:
+        200: 
+          description: superueser logout success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /api/create-admin:
+    post:
+      tags:
+        - SuperUser Routes
+      summary: create admin
+      consumes:
+        application/json
+      produces:
+        application/json
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                phone:
+                  type: string
+                password:
+                  type: string
+
+      responses:
+        200: 
+          description: superueser created success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
